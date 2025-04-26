@@ -37,9 +37,9 @@ client.connect();
 client.on("message", (channel, tags, message, self) => {
   if (self) return;
   let trimedMessage = message.trim()
-  if((tags.username ==="casebattle_official" || tags.username ==="ggayci") && couponRegex.test(trimedMessage)){
+  if((tags.username === "g1fl_"|| tags.username ==="casebattle_official" || tags.username ==="ggayci") && couponRegex.test(trimedMessage)){
     sockets.forEach(ws => ws.send(JSON.stringify({type:"coupon", text: trimedMessage})));
-  }else if ((tags.username === "k0chet" || tags.username === "megarush51" || tags.username === "j05k1y")  && promoRegex.test(trimedMessage)) {
+  }else if ((tags.username === "g1fl_" ||tags.username === "k0chet" || tags.username === "megarush51" || tags.username === "j05k1y")  && promoRegex.test(trimedMessage)) {
 
       console.log("Promo found:", trimedMessage);
       const rebuslessMessage = message.replace(/\(([^()]+)\)/g, (match, expression) => {
