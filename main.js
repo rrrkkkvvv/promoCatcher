@@ -29,7 +29,7 @@ const client = new tmi.Client({
     username: dotenvVars.username ,
     password:  dotenvVars.password,
   },
-  channels: [  "megarush51", "k0chet", "j05k1y","casebattle_official" ],
+  channels: [  "megarush51", "k0chet", "j05k1y","casebattle_official","joskiyokda" ],
  });
 
 client.connect();
@@ -39,7 +39,7 @@ client.on("message", (channel, tags, message, self) => {
   let trimedMessage = message.trim()
   if((tags.username ==="casebattle_official" ||tags.username === "g1fl_"  ) && couponRegex.test(trimedMessage)){
     sockets.forEach(ws => ws.send(JSON.stringify({type:"coupon", text: trimedMessage})));
-  }else if ((tags.username === "megarush51" || tags.username === "j05k1y" || tags.username === "g1fl_"  )  && promoRegex.test(trimedMessage)) {
+  }else if ((tags.username === "megarush51" ||tags.username === "joskiyokda" || tags.username === "j05k1y" || tags.username === "g1fl_"  )  && promoRegex.test(trimedMessage)) {
 
       console.log("Promo found:", trimedMessage);
       const rebuslessMessage = message.replace(/\(([^()]+)\)/g, (match, expression) => {
